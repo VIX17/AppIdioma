@@ -1,17 +1,21 @@
+import 'package:flutter/material.dart';
+import 'package:app_idioma/views/singup.dart';
 import 'package:app_idioma/widgets/my_input_field.dart';
 import 'package:app_idioma/widgets/my_text_button.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
+// Tela de login que é um StatefulWidget
 class Login extends StatefulWidget {
   @override
-  _LogInState createState() => _LogInState();
+  _LoginState createState() => _LoginState();
 }
 
-class _LogInState extends State<Login> {
+// Estado associado à tela de login
+class _LoginState extends State<Login> {
+  // Controladores para os campos de email e senha
   late TextEditingController emailController;
   late TextEditingController passwordController;
 
+  // Inicializa os controladores
   @override
   void initState() {
     super.initState();
@@ -19,6 +23,7 @@ class _LogInState extends State<Login> {
     passwordController = TextEditingController();
   }
 
+  // Libera os recursos dos controladores
   @override
   void dispose() {
     emailController.dispose();
@@ -32,6 +37,7 @@ class _LogInState extends State<Login> {
       backgroundColor: Colors.black,
       body: Column(
         children: [
+          // Container para a imagem de capa e logo
           Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height * .3,
@@ -49,6 +55,7 @@ class _LogInState extends State<Login> {
               ),
             ),
           ),
+          // Container para o formulário de login
           Expanded(
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 40),
@@ -63,13 +70,13 @@ class _LogInState extends State<Login> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      // Título da tela de login
                       Text(
                         "Login",
                         style: TextStyle(fontSize: 40),
                       ),
-                      SizedBox(
-                        height: 20,
-                      ),
+                      SizedBox(height: 20),
+                      // Campos de entrada para email e senha
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
@@ -77,7 +84,7 @@ class _LogInState extends State<Login> {
                             label: 'Email',
                             placeholder: "Email Address",
                             onChange: (value) {
-                               this.emailController.text = value;
+                              emailController.text = value;
                             },
                           ),
                           SizedBox(height: 30),
@@ -85,35 +92,42 @@ class _LogInState extends State<Login> {
                             label: 'Password',
                             placeholder: "Password",
                             onChange: (value) {
-                              this.passwordController.text = value;
+                              passwordController.text = value;
                             },
                             isPasswordField: true,
                           ),
                           SizedBox(height: 30),
+                          // Botão de login
                           MyTextButton(
                             label: "Log in",
                             onTap: () {
-                              print(this.emailController.text +
-                                  " | " +
-                                  this.passwordController.text);
+                              print(emailController.text + " | " + passwordController.text);
                             },
-                          )
+                          ),
                         ],
                       ),
-                      SizedBox(
-                        height: 20,
-                      ),
+                      SizedBox(height: 20),
+                      // Texto para redirecionar para a tela de cadastro
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
                             "Don't have an account?",
                             style: TextStyle(fontSize: 18),
                           ),
-                          Text(
-                            " Sign Up",
-                            style: TextStyle(fontSize: 18),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => SingUp(),
+                                ),
+                              );
+                            },
+                            child: Text(
+                              " Sign Up",
+                              style: TextStyle(fontSize: 18),
+                            ),
                           ),
                         ],
                       ),
