@@ -10,6 +10,11 @@ class TelaMatch extends StatefulWidget {
 class _TelaMatchState extends State<TelaMatch> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Seus Matches'),
+      ),
+      body: const Placeholder(),
+    );
   }
 }
