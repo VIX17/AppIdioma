@@ -1,37 +1,39 @@
 import 'package:flutter/material.dart';
-import 'package:app_idioma/views/login.dart';
+import 'package:app_idioma/views/login.dart'; // Importa a tela de login
 import 'package:app_idioma/widgets/my_input_field.dart';
 import 'package:app_idioma/widgets/my_text_button.dart';
 
-class SingUp extends StatefulWidget {
+class SignUp extends StatefulWidget {
   @override
-  _SingUpState createState() => _SingUpState();
+  _SignUpState createState() => _SignUpState();
 }
 
-class _SingUpState extends State<SingUp> {
-  late TextEditingController emailController; // Controlador para o campo de email
-  late TextEditingController passwordController; // Controlador para o campo de senha
-  late TextEditingController confirmPasswordController; // Controlador para o campo de confirmação de senha
-  late TextEditingController firstNameController; // Controlador para o campo de primeiro nome
-  late TextEditingController lastNameController; // Controlador para o campo de sobrenome
+class _SignUpState extends State<SignUp> {
+  late TextEditingController emailController;
+  late TextEditingController passwordController;
+  late TextEditingController confirmPasswordController;
+  late TextEditingController firstNameController;
+  late TextEditingController lastNameController;
 
   @override
   void initState() {
     super.initState();
-    emailController = TextEditingController(); // Inicializa o controlador do email
-    passwordController = TextEditingController(); // Inicializa o controlador da senha
-    confirmPasswordController = TextEditingController(); // Inicializa o controlador de confirmação de senha
-    firstNameController = TextEditingController(); // Inicializa o controlador do primeiro nome
-    lastNameController = TextEditingController(); // Inicializa o controlador do sobrenome
+    // Inicializa os controladores de texto
+    emailController = TextEditingController();
+    passwordController = TextEditingController();
+    confirmPasswordController = TextEditingController();
+    firstNameController = TextEditingController();
+    lastNameController = TextEditingController();
   }
 
   @override
   void dispose() {
-    emailController.dispose(); // Libera o controlador do email
-    passwordController.dispose(); // Libera o controlador da senha
-    confirmPasswordController.dispose(); // Libera o controlador de confirmação de senha
-    firstNameController.dispose(); // Libera o controlador do primeiro nome
-    lastNameController.dispose(); // Libera o controlador do sobrenome
+    // Libera os controladores de texto
+    emailController.dispose();
+    passwordController.dispose();
+    confirmPasswordController.dispose();
+    firstNameController.dispose();
+    lastNameController.dispose();
     super.dispose();
   }
 
@@ -39,27 +41,27 @@ class _SingUpState extends State<SingUp> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: Column(
-        children: [
-          Container(
-            width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-              color: Colors.black,
-              image: DecorationImage(
-                image: AssetImage("assets/images/capa.jpeg"),
-                fit: BoxFit.cover,
-              ),
-            ),
-            child: SafeArea(
-              child: Container(
+      body: Container(
+        decoration: BoxDecoration(
+          color: Color.fromARGB(255, 0, 0, 0),
+          image: DecorationImage(
+            image: AssetImage("assets/images/capa.jpeg"),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: SafeArea(
+          child: Column(
+            children: [
+              Container(
                 padding: EdgeInsets.symmetric(horizontal: 30),
                 height: 80,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    // Ícone para voltar à tela anterior
                     GestureDetector(
                       onTap: () {
-                        Navigator.pop(context); // Volta para a tela anterior
+                        Navigator.pop(context);
                       },
                       child: Icon(
                         Icons.keyboard_arrow_left,
@@ -67,6 +69,7 @@ class _SingUpState extends State<SingUp> {
                         color: Colors.white,
                       ),
                     ),
+                    // Título da tela de cadastro
                     Text(
                       "Sign Up",
                       style: TextStyle(fontSize: 40, color: Colors.white),
@@ -75,104 +78,116 @@ class _SingUpState extends State<SingUp> {
                   ],
                 ),
               ),
-            ),
-          ),
-          Expanded(
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(64)),
-              ),
-              clipBehavior: Clip.antiAlias,
-              child: SingleChildScrollView(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 50),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      MyInputField(
-                        label: 'First name',
-                        placeholder: "First name",
-                        onChange: (value) {
-                          firstNameController.text = value; // Atualiza o controlador do primeiro nome
-                        },
-                      ),
-                      SizedBox(height: 20),
-                      MyInputField(
-                        label: 'Last name',
-                        placeholder: "Last name",
-                        onChange: (value) {
-                          lastNameController.text = value; // Atualiza o controlador do sobrenome
-                        },
-                      ),
-                      SizedBox(height: 20),
-                      MyInputField(
-                        label: 'Email',
-                        placeholder: "Email Address",
-                        onChange: (value) {
-                          emailController.text = value; // Atualiza o controlador do email
-                        },
-                      ),
-                      SizedBox(height: 20),
-                      MyInputField(
-                        label: 'Password',
-                        placeholder: "Password",
-                        onChange: (value) {
-                          passwordController.text = value; // Atualiza o controlador da senha
-                        },
-                        isPasswordField: true,
-                      ),
-                      SizedBox(height: 20),
-                      MyInputField(
-                        label: 'Confirm Password',
-                        placeholder: "Password",
-                        onChange: (value) {
-                          confirmPasswordController.text = value; // Atualiza o controlador de confirmação de senha
-                        },
-                        isPasswordField: true,
-                      ),
-                      SizedBox(height: 20),
-                      MyTextButton(
-                        label: "Sign Up",
-                        onTap: () {
-                          print(firstNameController.text); // Imprime o primeiro nome
-                          print(lastNameController.text); // Imprime o sobrenome
-                          print(emailController.text); // Imprime o email
-                          print(passwordController.text); // Imprime a senha
-                          print(confirmPasswordController.text); // Imprime a confirmação de senha
-                        },
-                      ),
-                      SizedBox(height: 40),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
+              // Container para o formulário de cadastro
+              Expanded(
+                child: Container(
+                  width: 500,
+                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 40),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                  ),
+                  clipBehavior: Clip.antiAlias,
+                  child: SingleChildScrollView(
+                    child: Padding(
+                      padding: EdgeInsets.all(30), // Espaçamento interno do container
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text(
-                            "You already have an account?",
-                            style: TextStyle(fontSize: 18),
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.pushAndRemoveUntil(
-                                context,
-                                MaterialPageRoute(builder: (context) => Login()), // Navega para a tela de login
-                                (route) => false,
-                              );
+                          // Campo de entrada para o primeiro nome
+                          MyInputField(
+                            label: 'First name',
+                            placeholder: "First name",
+                            onChange: (value) {
+                              firstNameController.text = value;
                             },
-                            child: Text(
-                              " Log In",
-                              style: TextStyle(fontSize: 18),
-                            ),
+                          ),
+                          SizedBox(height: 20),
+                          // Campo de entrada para o sobrenome
+                          MyInputField(
+                            label: 'Last name',
+                            placeholder: "Last name",
+                            onChange: (value) {
+                              lastNameController.text = value;
+                            },
+                          ),
+                          SizedBox(height: 20),
+                          // Campo de entrada para o email
+                          MyInputField(
+                            label: 'Email',
+                            placeholder: "Email Address",
+                            onChange: (value) {
+                              emailController.text = value;
+                            },
+                          ),
+                          SizedBox(height: 20),
+                          // Campo de entrada para a senha
+                          MyInputField(
+                            label: 'Password',
+                            placeholder: "Password",
+                            onChange: (value) {
+                              passwordController.text = value;
+                            },
+                            isPasswordField: true,
+                          ),
+                          SizedBox(height: 20),
+                          // Campo de entrada para a confirmação de senha
+                          MyInputField(
+                            label: 'Confirm Password',
+                            placeholder: "Password",
+                            onChange: (value) {
+                              confirmPasswordController.text = value;
+                            },
+                            isPasswordField: true,
+                          ),
+                          SizedBox(height: 20),
+                          // Botão de cadastro
+                          HoverMyTextButton(
+                            label: "Sign Up",
+                            onTap: () {
+                              // Imprime os valores dos campos de entrada
+                              print(firstNameController.text);
+                              print(lastNameController.text);
+                              print(emailController.text);
+                              print(passwordController.text);
+                              print(confirmPasswordController.text);
+                            },
+                          ),
+                          SizedBox(height: 40),
+                          // Texto para redirecionar para a tela de login
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                "You already have an account?",
+                                style: TextStyle(fontSize: 18),
+                              ),
+                              // Botão para ir para a tela de login
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.pushAndRemoveUntil(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => Login()),
+                                    (route) => false,
+                                  );
+                                },
+                                child: Text(
+                                  " Log In",
+                                  style: TextStyle(fontSize: 18),
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
-                    ],
+                    ),
                   ),
                 ),
               ),
-            ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

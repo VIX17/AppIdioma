@@ -18,8 +18,9 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     // Retorna o widget MaterialApp que define a estrutura básica do aplicativo
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       // Define a tela inicial do aplicativo como a tela de login
       home: Login(),
     );
-  }
+     }
 }
