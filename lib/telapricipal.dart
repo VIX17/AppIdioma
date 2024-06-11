@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'tela_match.dart';
+import 'drawer.dart';
 
 // Função principal que inicializa o aplicativo Flutter.
 void main() {
@@ -29,6 +29,7 @@ class _NavDrawerExampleState extends State<NavDrawerExample> {
   void _updateSelectedImage() {
     setState(() {
       selectedImageIndex = (selectedImageIndex + 1) % imagens.length;
+
     });
   }
     void _skip() {
@@ -40,37 +41,6 @@ class _NavDrawerExampleState extends State<NavDrawerExample> {
   // Método build que descreve como construir a interface do usuário deste widget.
   @override
   Widget build(BuildContext context) {
-    // Cabeçalho do drawer, exibindo informações do usuário.
-    final drawerHeader = const UserAccountsDrawerHeader(
-      accountName: Text('User Name'),
-      accountEmail: Text('user.name@email.com'),
-      currentAccountPicture: CircleAvatar(
-        backgroundColor: Colors.white,
-        child: FlutterLogo(size: 42.0),
-      ),
-    );
-
-    // Itens do drawer (menu lateral), cada um representando uma página diferente.
-    final drawerItems = ListView(
-      children: <Widget>[
-        drawerHeader,
-        ListTile(
-          title: const Text('Seus Matches 👀', style: TextStyle(color: Colors.pink)),
-          onTap: () {
-            Navigator.push(context, 
-               MaterialPageRoute(builder: (context) => TelaMatch()));
-          } 
-        ),
-        ListTile(
-          title: const Text('Ranking de Pontuações 👑', style: TextStyle(color: Colors.amber)),
-          onTap: () => Navigator.of(context).push(_NewPage(2)), // Navega para a nova página com ID 2.
-        ),
-        ListTile(
-          title: const Text('Respondidas ', style: TextStyle(color: Colors.red)),
-          onTap: () => Navigator.of(context).push(_NewPage(3)), // Navega para a nova página com ID 3.
-        ),
-      ],
-    );
 
     // Retorna um MaterialApp, que é o widget raiz do aplicativo.
     return MaterialApp(
@@ -118,6 +88,7 @@ class _NavDrawerExampleState extends State<NavDrawerExample> {
                                 width: 300, // Define a largura da imagem.
                                 height: 400, // Define a altura da imagem.
                               ),
+                              
                               const SizedBox(height: 16.0), // Espaçamento entre a imagem e os botões.
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -154,35 +125,13 @@ class _NavDrawerExampleState extends State<NavDrawerExample> {
           ],
         ),
         // Drawer (menu lateral) contendo os itens definidos anteriormente.
-        drawer: Drawer(
-          backgroundColor: Colors.white,
-          child: drawerItems,
+        drawer:const Drawer(
+          child: DrawerExample2(),
         ),
       ),
     );
   }
 }
-
-// Classe _NewPage que cria uma nova rota/página no aplicativo.
-// <void> significa que esta rota não retorna nada.
-class _NewPage extends MaterialPageRoute<void> {
-  // Construtor que inicializa a rota com um ID.
-  _NewPage(int id)
-      : super(
-          builder: (BuildContext context) {
-            return Scaffold(
-              appBar: AppBar(
-                title: Text('Page $id'),
-                elevation: 1.0,
-              ),
-              body: Center(
-                child: Text('Page $id'),
-              ),
-            );
-          },
-        );
-}
-
 // Classe simples que representa uma imagem.
 class Foryou {
   final String imagePath;
