@@ -18,7 +18,7 @@ class NavDrawerExample extends StatefulWidget {
 class _NavDrawerExampleState extends State<NavDrawerExample> {
   // Lista de imagens.
   List<Foryou> imagens = [
-    Foryou('assets/images/imat.jpeg'),
+    Foryou('assets/images/bmw.jpg'),
     Foryou('assets/images/base.jpg'),
   ];
 
@@ -70,8 +70,8 @@ class _NavDrawerExampleState extends State<NavDrawerExample> {
                   // Caixa central semi-opaca que exibe a imagem selecionada.
                   Center(
                     child: Container(
-                      width: 400,
-                      height: 540,
+                      width: 450,
+                      height: 570,
                       decoration: BoxDecoration(
                         color: Colors.white.withOpacity(0.7), // 50% opaco.
                         borderRadius: BorderRadius.circular(14),
@@ -85,7 +85,7 @@ class _NavDrawerExampleState extends State<NavDrawerExample> {
                               Image.asset(
                                 imagens[selectedImageIndex].imagePath,
                                 fit: BoxFit.contain,
-                                width: 300, // Define a largura da imagem.
+                                width: 400, // Define a largura da imagem.
                                 height: 400, // Define a altura da imagem.
                               ),
                               
@@ -94,21 +94,19 @@ class _NavDrawerExampleState extends State<NavDrawerExample> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   SizedBox(
-                                    width: 60, // Largura personalizada do botão.
-                                    height: 50, // Altura personalizada do botão.
+                                   // Altura personalizada do botão.
                                     child: ElevatedButton(
                                       onPressed: _skip,
-                                      child: const Text('X', style: TextStyle(color: Color.fromARGB(255, 0, 0, 0))),
+                                      child: const Text('Pular assunto', style: TextStyle(color: Color.fromARGB(255, 0, 0, 0))),
                                       
                                     ),
                                   ),
                                   const SizedBox(width: 100.0), // Espaçamento entre os botões.
                                   SizedBox(
-                                    width: 60, // Largura personalizada do botão.
-                                    height: 50, // Altura personalizada do botão.
+                                    // Altura personalizada do botão.
                                     child: ElevatedButton(
                                       onPressed: _updateSelectedImage,
-                                      child: const Text('V'),
+                                      child: const Text('Desbloquear assunto', style: TextStyle(color: Color.fromARGB(255, 0, 0, 0))),
                                     ),
                                   ),
                                 ],
@@ -125,8 +123,8 @@ class _NavDrawerExampleState extends State<NavDrawerExample> {
           ],
         ),
         // Drawer (menu lateral) contendo os itens definidos anteriormente.
-        drawer:const Drawer(
-          child: DrawerExample2(),
+        drawer:const Drawer(       
+          child: DrawerExample2(),       
         ),
       ),
     );
