@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:app_idioma/views/login.dart'; // Importa a tela de login
+import 'package:app_idioma/servico/autenticacao_servico.dart';
 import 'package:app_idioma/widgets/my_input_field.dart';
 import 'package:app_idioma/widgets/my_text_button.dart';
 
@@ -14,6 +15,8 @@ class _SignUpState extends State<SignUp> {
   late TextEditingController confirmPasswordController;
   late TextEditingController firstNameController;
   late TextEditingController lastNameController;
+
+  AutenticacaoServico _autenServico = AutenticacaoServico();
 
   @override
   void initState() {
@@ -144,13 +147,29 @@ class _SignUpState extends State<SignUp> {
                           // Botão de cadastro
                           HoverMyTextButton(
                             label: "Sign Up",
-                            onTap: () {
-                              // Imprime os valores dos campos de entrada
-                              print(firstNameController.text);
-                              print(lastNameController.text);
-                              print(emailController.text);
-                              print(passwordController.text);
-                              print(confirmPasswordController.text);
+                            onTap: () async {
+                              try {
+                                // Chama o método para cadastrar o usuário
+                                await _autenServico.cadastrarUsuario(
+                                  firstName: firstNameController.text,
+                                  lastName: lastNameController.text,
+                                  email: emailController.text,
+                                  password: passwordController.text,
+                                );
+
+                                // Imprime mensagem de sucesso
+                                print('Usuário cadastrado com sucesso!');
+                                
+                                // Redireciona para a tela de login
+                                Navigator.pushAndRemoveUntil(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => Login()),
+                                  (route) => false,
+                                );
+                              } catch (e) {
+                                // Trata o erro
+                                print('Erro ao cadastrar usuário: $e');
+                              }
                             },
                           ),
                           SizedBox(height: 40),
