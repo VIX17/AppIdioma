@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'tela_match.dart';
 import 'tela_ranking.dart';
-import 'tela_respondidas.dart';
-
 
 class DrawerExample2 extends StatelessWidget {
   const DrawerExample2({Key? key}) : super(key: key);
@@ -42,13 +40,6 @@ class DrawerExample2 extends StatelessWidget {
            onTap: () {
             Navigator.of(context).push(
                MaterialPageRoute(builder: (context) => const TelaRanking()));
-          } 
-        ),
-        ListTile(
-          title: const Text('Respondidas ', style: TextStyle(color: Colors.red)),
-          onTap: () {
-            Navigator.of(context).push(
-               MaterialPageRoute(builder: (context) => const TelaRespondidas()));
           } 
         ),
       ],

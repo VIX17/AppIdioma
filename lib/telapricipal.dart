@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'drawer.dart';
+import 'telaconteudo1.dart';
 
 // Função principal que inicializa o aplicativo Flutter.
 void main() {
@@ -16,22 +17,24 @@ class NavDrawerExample extends StatefulWidget {
 
 // Define o estado do widget NavDrawerExample.
 class _NavDrawerExampleState extends State<NavDrawerExample> {
+ 
   // Lista de imagens.
   List<Foryou> imagens = [
-    Foryou('assets/images/bmw.jpg'),
-    Foryou('assets/images/base.jpg'),
+    Foryou('assets/images/baselvl1.png'),
+    Foryou('assets/images/baselvl2.png'),
+    Foryou('assets/images/baselvl3.png'),
   ];
 
   // Índice da imagem selecionada.
   int selectedImageIndex = 0;
+  
 
   // Método para atualizar a imagem selecionada.
-  void _updateSelectedImage() {
-    setState(() {
-      selectedImageIndex = (selectedImageIndex + 1) % imagens.length;
-
-    });
-  }
+void _updateSelectedImage() {
+  setState(() {
+    selectedImageIndex = (selectedImageIndex + 1) % imagens.length;
+  });
+}
     void _skip() {
     setState(() {
       selectedImageIndex = (selectedImageIndex + 1) % imagens.length;

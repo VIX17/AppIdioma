@@ -64,9 +64,10 @@ flutter:
     - assets/images/capa.jpeg
     - assets/images/cap.jpg
     - assets/images/log.png
-    - assets/images/imat.jpeg
-    - assets/images/bmw.jpg
-    - assets/images/base.jpg
+    - assets/images/baselvl1.png
+    - assets/images/baselvl2.png
+    - assets/images/baselvl3.png
+   
 
   # To add assets to your application, add an assets section, like this:
   # assets:
