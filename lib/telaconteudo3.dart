@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class conteudopage1 extends StatelessWidget {
+class conteudopage3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home Page1'),
+        title: Text('Home Page3'),
         centerTitle: true,
       ),
       body: Center(
