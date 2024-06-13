@@ -92,10 +92,8 @@ class _NavDrawerExampleState extends State<NavDrawerExample> {
                                 width: 400, // Define a largura da imagem.
                                 height: 400, // Define a altura da imagem.
                               ),
-
-                              const SizedBox(
-                                  height:
-                                      16.0), // Espaçamento entre a imagem e os botões.
+                              const SizedBox(height: 16.0),
+                              // Espaçamento entre a imagem e os botões.
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -117,21 +115,19 @@ class _NavDrawerExampleState extends State<NavDrawerExample> {
                                           switch (selectedImageIndex) {
                                             case 0:
                                               Navigator.of(context).push(
-                                                  MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          conteudopage1()));
+                                                  MaterialPageRoute(builder: (context) => Conteudopage1()));
                                               break;
                                             case 1:
                                               Navigator.of(context).push(
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          conteudopage2()));
+                                                           Conteudopage2()));
                                               break;
                                             case 2:
                                               Navigator.of(context).push(
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          conteudopage3()));
+                                                          Conteudopage3()));
                                               break;
                                             default:
                                               // Handle default case

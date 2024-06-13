@@ -22,7 +22,7 @@ class _TelaMatchState extends State<TelaMatch> {
               style: ElevatedButton.styleFrom(elevation: 2),            
               onPressed: () {
                  Navigator.of(context).push(
-               MaterialPageRoute(builder: (context) => conteudopage1()));
+               MaterialPageRoute(builder: (context) => Conteudopage1()));
               },
               child: Row(
                 children: [
@@ -35,8 +35,8 @@ class _TelaMatchState extends State<TelaMatch> {
             ElevatedButton(
               style: ElevatedButton.styleFrom(elevation: 2),
               onPressed: () { 
-              //   Navigator.of(context).push(
-              // MaterialPageRoute(builder: (context) => const telaconteudo1()));
+                 Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => Conteudopage1()));
               },
               child: Row(
                 children: [

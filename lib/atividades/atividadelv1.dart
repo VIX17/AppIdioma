@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:app_idioma/telaPricipal/telapricipal.dart';
 
-class Quiz extends StatefulWidget {
+class Quiz1 extends StatefulWidget {
   @override
   _QuizState createState() => _QuizState();
 }
 
-class _QuizState extends State<Quiz> {
+class _QuizState extends State<Quiz1> {
   int perguntaNumero = 0;
   int acertos = 0;
   int erros = 0;

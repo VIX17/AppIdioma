@@ -1,24 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:app_idioma/telaPricipal/telapricipal.dart';
 
-void main() {
-  runApp(MyApp());
-}
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Quiz(),
-    );
-  }
-}
-
-class Quiz extends StatefulWidget {
+class Quiz3 extends StatefulWidget {
   @override
   _QuizState createState() => _QuizState();
 }
 
-class _QuizState extends State<Quiz> {
+class _QuizState extends State<Quiz3> {
   int perguntaNumero = 0;
   int acertos = 0;
   int erros = 0;
@@ -259,7 +248,7 @@ class ProximaTela extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MyApp()), // Substitua 'MyApp' pela tela desejada
+                      MaterialPageRoute(builder: (context) => NavDrawerExample()), // Substitua 'MyApp' pela tela desejada
                     );
                   },
                   child: Text(
