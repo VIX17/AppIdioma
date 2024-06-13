@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:app_idioma/atividades/atividadelv2.dart';
 
-class Conteudopage1 extends StatelessWidget {
+class Conteudopage2 extends StatelessWidget {
 
   void _launchURL() async {
-    const url = 'https://www.youtube.com';
+    const url = 'https://drive.google.com/drive/folders/12-hr9IU0FPnYR5V_9IU-rMjxaPnxaN4W?usp=drive_link';
     if (await canLaunch(url)) {
       await launch(url);
     } else {
@@ -18,14 +18,14 @@ class Conteudopage1 extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: Text('Conteudo inicial'),
+        title: Text('Conteudo medio'),
         centerTitle: true,
         backgroundColor: Colors.transparent,
       ),
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/telaconteudo.png'),
+            image: AssetImage('assets/images/telaconteudo2.png'),
             fit: BoxFit.cover,
           ),
         ),

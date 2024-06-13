@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'telaconteudo1.dart';
+import 'telaconteudo2.dart';
+import 'telaconteudo3.dart';
 
 class TelaMatch extends StatefulWidget {
   const TelaMatch({super.key});
@@ -36,7 +38,7 @@ class _TelaMatchState extends State<TelaMatch> {
               style: ElevatedButton.styleFrom(elevation: 2),
               onPressed: () { 
                  Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => Conteudopage1()));
+              MaterialPageRoute(builder: (context) => Conteudopage2()));
               },
               child: Row(
                 children: [
@@ -49,8 +51,8 @@ class _TelaMatchState extends State<TelaMatch> {
             ElevatedButton(
               style: ElevatedButton.styleFrom(elevation: 2),
               onPressed: () {
-                // Navigator.of(context).push(
-              // MaterialPageRoute(builder: (context) => const Telaconteudoinicial()));
+               Navigator.of(context).push(
+               MaterialPageRoute(builder: (context) => Conteudopage3()));
                },
               child: Row(
                 children: [
