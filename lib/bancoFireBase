@@ -1,0 +1,18 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDmB6XAFOL9Uk5wE-UbUK-aQLiaPjNd6_U",
+  authDomain: "bancoappidioma.firebaseapp.com",
+  databaseURL: "https://bancoappidioma-default-rtdb.firebaseio.com",
+  projectId: "bancoappidioma",
+  storageBucket: "bancoappidioma.appspot.com",
+  messagingSenderId: "552234530703",
+  appId: "1:552234530703:web:80d981ff3380dce7d57dfa"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
